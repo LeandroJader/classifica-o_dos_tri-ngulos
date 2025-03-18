@@ -14,28 +14,51 @@
 
 
                 Console.Clear();
-                Console.WriteLine("=========================") ;
+                Console.WriteLine("=========================");
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Classificador de triangulos");
+                Console.ResetColor();
                 Console.WriteLine("=========================");
                 
                 Console.WriteLine("informe o lado x do triangulo");
 
                 int ladox = Convert.ToInt32(Console.ReadLine());
-                Console.Write("informe o lado y");
+                Console.WriteLine("informe o lado y");
                 int ladoy = Convert.ToInt32(Console.ReadLine());
-                Console.Write("informe o lado z");
+                Console.WriteLine("informe o lado z");
                 int ladoz = Convert.ToInt32(Console.ReadLine());
 
 
                 Console.WriteLine("============================");
                 Console.WriteLine("exibir valores ");
-                Console.WriteLine("lado x "+ladox);
-                Console.WriteLine("lado y "+ ladoy);
-                Console.WriteLine("lado z"+ ladoz);
+                Console.WriteLine("lado x " +ladox);
+                Console.WriteLine("lado y " + ladoy);
+                Console.WriteLine("lado z" + ladoz);
 
+                //verificar validade do triangulo
                 Console.Write("==========================");
+                
+                bool medidasTrianguloValida =
+                    ladox+ladoy>ladoz &&
+                    ladox+ladoz>ladoy &&
+                    ladoy +ladoz>ladox;
 
-                string opcaoContinuar = Console.ReadLine().ToUpper();
+                if (medidasTrianguloValida ==true)
+                {
+                    Console.WriteLine("triangulo e válido");
+
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("======================================");
+                    Console.WriteLine( " os valores informados nao formam um triangulo");
+                    Console.ResetColor();
+                }
+
+
+
+                    string opcaoContinuar = Console.ReadLine()!.ToUpper();
 
 
 
