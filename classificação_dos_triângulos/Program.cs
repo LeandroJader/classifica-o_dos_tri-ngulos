@@ -1,4 +1,6 @@
-﻿namespace classificação_dos_triângulos
+﻿using System;
+
+namespace classificação_dos_triângulos
 {
     internal class Program
     {
@@ -6,57 +8,14 @@
         {
             while (true)
             {
+                ExibirMenu();
 
-                Console.Clear();
-                Console.WriteLine("=========================");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Classificador de triangulos");
-                Console.ResetColor();
-                Console.WriteLine("=========================");
+                int ladox = LerLados("x");
+                int ladoy = LerLados("y");
+                int ladoz = LerLados("z");
 
-
-                int ladox;
-
-                while (true)
-                {
-                    Console.WriteLine("informe o lado x do triangulo");
-
-                    bool consegiuConverter = int.TryParse(Console.ReadLine(),out ladox);
-                    if (consegiuConverter)
-                    {
-                        break;
-                    }
-                }
-
-                int ladoy;
-                while (true)
-                {
-                    Console.WriteLine("informe o lado y do triangulo");
-
-                    bool consegiuConverter = int.TryParse(Console.ReadLine(), out ladoy);
-                    if (consegiuConverter)
-                    {
-                        break;
-                    }
-                }
-                int ladoz;
-                while (true)
-                {
-                    Console.WriteLine("informe o lado z do triangulo");
-
-                    bool consegiuConverter = int.TryParse(Console.ReadLine(), out ladoz);
-                    if (consegiuConverter)
-                    {
-                        break;
-                    }
-                }
-
-                Console.WriteLine("============================");
-                Console.WriteLine("exibir valores ");
-                Console.WriteLine("lado x " + ladox);
-                Console.WriteLine("lado y " + ladoy);
-                Console.WriteLine("lado z " + ladoz);
-
+                ExibirValoresInformados(ladox,ladoy,ladoz);
+               
                 //verificar validade do triangulo
                 Console.Write("==========================");
                 
@@ -102,5 +61,48 @@
                 }
             }
         }
+
+        public static void ExibirMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("=========================");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Classificador de triangulos");
+            Console.ResetColor();
+            Console.WriteLine("=========================");
+        }
+       static int LerLados (string nomelado)
+        {
+
+            int valor;
+
+            while (true)
+            {
+                Console.WriteLine($"informe o lado {nomelado}");
+
+                bool consegiuConverter = int.TryParse(Console.ReadLine(), out valor);
+                if (consegiuConverter)
+                {
+                    break;
+                }
+            }
+                return valor;
+        }
+        static void ExibirValoresInformados(int ladox,int ladoy,int ladoz)
+        {
+
+            Console.WriteLine("============================");
+            Console.WriteLine("exibir valores ");
+            Console.WriteLine("lado x " + ladox);
+            Console.WriteLine("lado y " + ladoy);
+            Console.WriteLine("lado z " + ladoz);
+
+        }
+
+
+
+
+
+
     }
 }
